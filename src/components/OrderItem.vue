@@ -6,14 +6,21 @@
     </van-row>
     <van-row>
       <van-col :span="24" :offset="1">
-        <div v-if="data.waiter=!null">
+        <!-- <div v-if="data.waiter=!null">
           员工姓名：
           {{data.waiter.realname}}
           </div>
-        <div v-if="data.waiter=!null">
+        <div v-if="data.waiter=!null"> 
           员工联系方式：
           {{data.waiter.telephone}}
-          </div>
+          </div> -->
+        <div v-if="data.orderLines != null">服务：
+          <span 
+            v-for="line in data.orderLines" 
+            :key="line.id">
+              {{line.product.name}}
+          </span>
+        </div>
         <div>总价：{{data.total}}</div>
         <div>工单类型：装机</div>
         <div>服务时间：{{data.orderTime | datefmt}}</div>
